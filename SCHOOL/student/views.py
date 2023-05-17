@@ -54,22 +54,24 @@ def addcourses(request):
         return redirect('/courses/')
     
 def dltcourse(request,pk):
-    Addcourse.objects.get(id = pk).delete()
+    Addcourse.objects.filter(id = pk).delete()
     return redirect('/courses/')
 
 def update_course(request,uid):
     update=Addcourse.objects.get(id=uid)
-    return render(request,'update_course.html',{'update':update})
+    return render(request,'update_course.html',context={'student':update,})
 
 def updatecourse_data(request):
     if request.method == "POST":
         uid = request.POST["uid"]
-        uname = request.POST["CourseName"]
-        ufees = request.POST["CourseFees"]
-        uduration=request.POST['Duration']
-        udesc=request.POST['CourseDesc']
-        Addcourse.objects.filter(id=uid).update()
-        return redirect("/update_course/")
+        c_name=request.POST['CourseName']
+        c_fees=request.POST['CourseFees']
+        c_duration=request.POST['Duration']
+        c_desc=request.POST['CourseDesc']
+        Addcourse.objects.filter(id=uid).update(course=c_name, fees=c_fees,
+                                                 duration=c_duration,
+                                                 desc=c_desc)
+        return redirect("/courses/")
 
 def login(request):
     if request.method =='POST':
