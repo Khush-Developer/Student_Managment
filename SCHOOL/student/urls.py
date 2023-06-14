@@ -9,12 +9,14 @@ urlpatterns = [
     path('apicourse/create',CreatecourseViewSet.as_view()),
     path('apicourse/update/<int:pk>',UpdatecourseViewSet.as_view()),
     path('apicourse/delete/<int:pk>',DeletecourseViewSet.as_view()),
+    path('apicourse/upd/<int:pk>',UpdatecoursepartialytViewSet.as_view()),
 
     # create  addstudent api urls
     path('apistudent/show',ShowStudentViewSet.as_view()),
     path('apistudent/create',CreatestudentViewSet.as_view()),
     path('apistudent/update/<int:pk>',UpdatestudentiewSet.as_view()),
     path('apistudent/delete/<int:pk>',DeletestudentViewSet.as_view()),
+    path('apistudent/upd/<int:pk>',UpdatestudenpartialytViewSet.as_view()),
 
     # project urls
     path('',views.index),

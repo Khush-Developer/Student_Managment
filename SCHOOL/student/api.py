@@ -23,6 +23,10 @@ class DeletecourseViewSet(generics.DestroyAPIView):
     queryset = Addcourse.objects.all()
     serializer_class = CourseSerializer
 
+class UpdatecoursepartialytViewSet(generics.RetrieveUpdateAPIView):
+    queryset =Addcourse.objects.all()
+    serializer_class = CourseSerializer
+
 # api for addstudent
 
 class ShowStudentViewSet(generics.ListAPIView):
@@ -34,10 +38,14 @@ class CreatestudentViewSet(generics.CreateAPIView):
     queryset = Addstudent.objects.all()
     serializer_class = AddStudentSerializer
 
-class UpdatestudentiewSet(generics.RetrieveUpdateAPIView):
+class UpdatestudentiewSet(generics.UpdateAPIView):
     queryset = Addstudent.objects.all()
     serializer_class = AddStudentSerializer
 
 class DeletestudentViewSet(generics.DestroyAPIView):
     queryset = Addstudent.objects.all()
+    serializer_class = AddStudentSerializer
+
+class UpdatestudenpartialytViewSet(generics.RetrieveUpdateAPIView):
+    queryset =Addstudent.objects.all()
     serializer_class = AddStudentSerializer
