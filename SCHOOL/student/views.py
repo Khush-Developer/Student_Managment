@@ -112,7 +112,7 @@ def addstudent(request):
         s_degree=request.POST.get('degree')
         s_addcourse_id = request.POST.get('course')
         s_course=Addcourse.objects.get(id=s_addcourse_id)
-        if Addstudent.objects.filter(semail = s_email).exists():
+        if Addstudent.objects.filter(semail=s_email).exists():
             messages.error(request,'email already exists')
             return redirect('/addstudents/')
         elif Addstudent.objects.filter(smobile = s_mobile).exists():

@@ -1,7 +1,22 @@
-from django.urls import path
+from django.urls import path,include
 from .import views
+from student.api import *
 
 urlpatterns = [
+    
+    # create  course api urls
+    path('apishowcourse/',CourseViewSet.as_view()),
+    path('apicourse/create',CreatecourseViewSet.as_view()),
+    path('apicourse/update/<int:pk>',UpdatecourseViewSet.as_view()),
+    path('apicourse/delete/<int:pk>',DeletecourseViewSet.as_view()),
+
+    # create  addstudent api urls
+    path('apistudent/show',ShowStudentViewSet.as_view()),
+    path('apistudent/create',CreatestudentViewSet.as_view()),
+    path('apistudent/update/<int:pk>',UpdatestudentiewSet.as_view()),
+    path('apistudent/delete/<int:pk>',DeletestudentViewSet.as_view()),
+
+    # project urls
     path('',views.index),
     path('courses/',views.courses),
     path('dashboard/',views.dashboard),
